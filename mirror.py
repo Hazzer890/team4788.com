@@ -12,7 +12,7 @@ URL_RE = re.compile(r'https://(?:' + "|".join(re.escape(h) for h in CDN) + r')/'
 REL_MJS_RE = re.compile(r'[\w-]+\.[\w-]+\.mjs')                       # sibling bundle chunks
 NEW_URL_RE = re.compile(r'new URL\(`\./([^`]+)`,`(https://framerusercontent\.com/[^`]+)`\)')  # CMS chunks
 
-MAILTO = """async function wu(e,t,n){let f=[...t.entries()].filter(([k,v])=>typeof v=="string"&&v&&!k.startsWith("hp_"));location.href="mailto:FirstRoboticsTeam@curtin.edu.au?subject="+encodeURIComponent("Website enquiry from "+(t.get("Name")||"team4788.com"))+"&body="+encodeURIComponent(f.map(([k,v])=>k+": "+v).join("\\n\\n"));return new Response("{}",{status:200})}"""
+MAILTO = """async function wu(e,t,n){let f=[...t.entries()].filter(([k,v])=>typeof v=="string"&&v&&!k.startsWith("__framer_"));location.href="mailto:FirstRoboticsTeam@curtin.edu.au?subject="+encodeURIComponent("Website enquiry from "+(t.get("Name")||"team4788.com"))+"&body="+encodeURIComponent(f.map(([k,v])=>k+": "+v).join("\\n\\n"));return new Response("{}",{status:200})}"""
 
 def get(url):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -72,7 +72,7 @@ for root, _, files in os.walk(OUT):
                 r'let \2=await \3(\1);\4let \5=await \2.arrayBuffer(),\6=new Uint8Array(\7);{let o=0;for(let e of n)\6.set(new Uint8Array(\5,e.from,e.to-e.from),o),o+=e.to-e.from}if(\6.length!==\7)', n)
             if "`range`" in n and not k: print("WARN: range fetch not patched in", p, file=sys.stderr)
             # contact forms: Framer's form API dies with the subscription -> open a prefilled email instead
-            n, k = re.subn(r'async function wu\(e,t,n\)\{.*?\}\}function Tu', MAILTO + "function Tu", n, count=1, flags=re.S)
+            n, k = re.subn(r'async function wu\(e,t,n\)\{.*?\}\}function Tu', lambda m: MAILTO + "function Tu", n, count=1, flags=re.S)
             if "Framer-POW" in n: print("WARN: form submit not patched in", p, file=sys.stderr)
             n = n.replace("children:`Thank you`}", "children:`Now send it from your email app`}")
             n = re.sub(r'EditorBar:c===void 0\?void 0:\(\(\)=>\{.*?\}\)\(\),adaptLayoutToTextDirection', "EditorBar:void 0,adaptLayoutToTextDirection", n, flags=re.S)
