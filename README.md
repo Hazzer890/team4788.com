@@ -9,6 +9,23 @@ host works: upload the contents of `docs/` at the domain root.
 - All Framer CDN assets live under `docs/framerusercontent.com/` etc. Nothing loads from Framer at runtime.
 - Framer analytics and the on-page editor bar are stripped.
 
+## Going live (DNS at Namecheap)
+
+In Namecheap > Domain List > team4788.com > Advanced DNS, delete the existing
+A records for `@` and the CNAME for `www`, then add:
+
+| Type  | Host | Value                   |
+|-------|------|-------------------------|
+| A     | @    | 185.199.108.153         |
+| A     | @    | 185.199.109.153         |
+| A     | @    | 185.199.110.153         |
+| A     | @    | 185.199.111.153         |
+| CNAME | www  | hazzer890.github.io.    |
+
+Leave any MX/TXT records alone. Then in the repo: Settings > Pages > tick
+"Enforce HTTPS" once GitHub reports the certificate is issued (up to an hour
+after DNS propagates). Cancel Framer only after https://team4788.com loads.
+
 ## Known gaps
 
 - The contact forms (home page and `/contact`) have no backend. Submitting opens
