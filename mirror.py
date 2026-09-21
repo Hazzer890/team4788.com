@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mirror team4788.com (a Framer site) into ./site as self-contained static files."""
+"""Mirror team4788.com (a Framer site) into ./docs as self-contained static files. Run patch.py afterwards."""
 import re, os, html, urllib.request, urllib.parse, sys, glob
 from collections import deque
 

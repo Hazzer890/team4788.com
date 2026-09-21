@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://team4788.com/sitemap.xml
