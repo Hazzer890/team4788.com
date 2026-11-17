@@ -23,14 +23,14 @@ layout: default
     {% if page.video %}
     <section class="card wide">
       <iframe src="https://www.youtube.com/embed/{{ page.video }}" title="{{ page.title | escape }} reveal video" loading="lazy" allowfullscreen></iframe>
-      <h2>Reveal Video</h2>
+      <h2>{{ page.video_title | default: "Reveal Video" }}</h2>
       <p>{{ page.video_text }}</p>
     </section>
     {% endif %}
     {% for card in page.cards %}
     <section class="card{% if card.wide %} wide{% endif %}">
       {% if card.url %}<a href="{{ card.url }}">{% endif %}
-      <img src="{{ card.image }}" alt="{{ card.alt | escape }}" loading="lazy">
+      {% if card.image %}<img src="{{ card.image }}" alt="{{ card.alt | escape }}" loading="lazy">{% endif %}
       <h2>{{ card.title }}</h2>
       {% if card.url %}</a>{% endif %}
       <p>{{ card.text }}
@@ -39,5 +39,5 @@ layout: default
     </section>
     {% endfor %}
   </div>
-  {{ content }}
+  {% assign body = content | strip %}{% if body != "" %}<div class="prose robot-notes">{{ content }}</div>{% endif %}
 </article>
