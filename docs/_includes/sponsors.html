@@ -1,0 +1,5 @@
+<ul class="sponsors">
+  {% for s in site.data.sponsors %}
+  <li><img{% if s.wide %} class="wide"{% endif %} src="/assets/img/sponsors/{{ s.logo }}" alt="{{ s.name | escape }}" loading="lazy"></li>
+  {% endfor %}
+</ul>

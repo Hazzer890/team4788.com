@@ -1,0 +1,8 @@
+# Shown on the home page and /sponsors/. Logos are white on transparent, in assets/img/sponsors/.
+- { name: Curtin University, logo: curtin.png, wide: true }
+- { name: DNA Racing, logo: dna-racing.png }
+- { name: WARES, logo: wares.png }
+- { name: Paradigm Machines, logo: paradigm-machines.png }
+- { name: DSM Engineers, logo: dsm-engineers.png }
+- { name: Packaging Perth, logo: packaging-perth.png }
+- { name: "Artifactory, Perth's maker space", logo: artifactory.png }

@@ -1,0 +1,19 @@
+---
+title: Robots
+heading: Our Robots
+---
+{% include robot-strip.html %}
+<ul class="robot-list">
+  {% assign robots = site.robots | sort: "year" | reverse %}
+  {% for robot in robots %}
+  <li>
+    {% if robot.game_logo %}<img src="{{ robot.game_logo }}" alt="{{ robot.game }} game logo" loading="lazy">{% else %}<span class="game">{{ robot.game }}</span>{% endif %}
+    <span class="year">{{ robot.year }}</span>
+    <div>
+      <h2>{{ robot.title }}</h2>
+      <p>{{ robot.summary }}</p>
+    </div>
+    <a class="button pink" href="{{ robot.url }}">See this robot</a>
+  </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,4 @@
+- { name: GitHub, icon: github.png, url: "https://github.com/CurtinFRC" }
+- { name: Facebook, icon: facebook.png, url: "https://www.facebook.com/Team4788" }
+- { name: Instagram, icon: instagram.png, url: "https://www.instagram.com/frcteam4788/" }
+- { name: YouTube, icon: youtube.png, url: "https://www.youtube.com/@CurtinFRC4788CantControl" }

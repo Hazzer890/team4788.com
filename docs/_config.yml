@@ -1,0 +1,26 @@
+title: Team 4788
+tagline: Can't Control
+description: FRC Team 4788 Can't Control, a FIRST Robotics Competition team based at Curtin University in Perth, Western Australia.
+url: https://team4788.com
+email: FirstRoboticsTeam@curtin.edu.au
+lang: en-AU
+logo: /assets/img/icon.png
+image: /assets/img/og.jpg
+
+plugins: [jekyll-seo-tag, jekyll-sitemap, jekyll-redirect-from]
+
+permalink: /blog/:title/          # posts; pages come out as /name/
+collections:
+  robots:
+    output: true
+    permalink: /:name/            # _robots/2025frcrobot.md -> /2025frcrobot/
+
+defaults:
+  - scope: { path: "" }
+    values: { layout: page }
+  - scope: { type: posts }
+    values: { layout: post }
+  - scope: { type: robots }
+    values: { layout: robot }
+
+exclude: [Gemfile, Gemfile.lock, vendor, .bundle]

@@ -1,0 +1,10 @@
+<ul class="robot-strip">
+  {% assign robots = site.robots | sort: "year" | reverse %}
+  {% for robot in robots %}{% if robot.thumb %}
+  <li><a href="{{ robot.url }}">
+    <img src="{{ robot.thumb }}" alt="{{ robot.title | escape }}, the {{ robot.year }} robot" loading="lazy">
+    <strong>{{ robot.title }}</strong>
+    <span>{{ robot.year }}</span>
+  </a></li>
+  {% endif %}{% endfor %}
+</ul>

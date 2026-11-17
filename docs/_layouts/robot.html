@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<article class="robot">
+  <header class="robot-hero">
+    {% if page.render %}
+    <img src="{{ page.render }}" alt="{{ page.render_alt | escape }}">
+    {% else %}
+    <div class="no-render">Render coming soon</div>
+    {% endif %}
+    <div>
+      <h1>{{ page.title }}</h1>
+      <p class="game">{{ page.year }}: {{ page.game }}</p>
+      {% if page.results %}
+      <ul class="results">
+        {% for r in page.results %}<li>{{ r }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="cards">
+    {% if page.video %}
+    <section class="card wide">
+      <iframe src="https://www.youtube.com/embed/{{ page.video }}" title="{{ page.title | escape }} reveal video" loading="lazy" allowfullscreen></iframe>
+      <h2>Reveal Video</h2>
+      <p>{{ page.video_text }}</p>
+    </section>
+    {% endif %}
+    {% for card in page.cards %}
+    <section class="card{% if card.wide %} wide{% endif %}">
+      {% if card.url %}<a href="{{ card.url }}">{% endif %}
+      <img src="{{ card.image }}" alt="{{ card.alt | escape }}" loading="lazy">
+      <h2>{{ card.title }}</h2>
+      {% if card.url %}</a>{% endif %}
+      <p>{{ card.text }}
+        {% for link in card.links %}<a href="{{ link.url }}">{{ link.title }}</a>{% unless forloop.last %} - {% endunless %}{% endfor %}
+      </p>
+    </section>
+    {% endfor %}
+  </div>
+  {{ content }}
+</article>

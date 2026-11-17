@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title | escape }}{% if page.year %} ({{ page.year }} robot){% endif %} | {% endif %}{{ site.title }}</title>
+  {% seo title=false %}
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="/assets/img/icon.png">
+  <link rel="preload" href="/assets/fonts/effra-bold-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  {% include header.html %}
+  <main>
+{{ content }}
+  </main>
+  {% include footer.html %}
+</body>
+</html>

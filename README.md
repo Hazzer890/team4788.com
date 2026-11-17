@@ -1,19 +1,69 @@
-# team4788.com static copy
+# team4788.com
 
-`docs/` is a self-contained static mirror of https://team4788.com (a Framer site),
-made by `mirror.py` and then tidied by `patch.py`. Hosted on GitHub Pages from `main:/docs` (repo Hazzer890/team4788.com). Any static
-host works: upload the contents of `docs/` at the domain root.
+The Team 4788 website. A Jekyll site in `docs/`, built and hosted by GitHub Pages from `main:/docs` (repo Hazzer890/team4788.com). Pushing to `main` publishes it, there is no build step to run and no Actions workflow.
 
-- Pages are `<path>/index.html`, so `/about` works everywhere.
-- `404.html` is the custom not-found page; most hosts pick it up automatically.
-- All Framer CDN assets live under `docs/framerusercontent.com/` etc. Nothing loads from Framer at runtime.
-- Still third-party at runtime: YouTube and Google Maps embeds, and the 3D robot viewers on the robot pages (Spline runtime from unpkg.com, scenes from my.spline.design, about 11 MB each). If the Spline account lapses the 3D viewers go blank, the rest of the page is fine.
-- Framer analytics and the on-page editor bar are stripped.
+Third-party at runtime: the YouTube embeds on the robot pages and the Google Maps embed on `/contact/`. Everything else (fonts, images, CSS) is served from this repo. There is no JavaScript.
 
-## Going live (DNS at Namecheap)
+## Where things are
 
-In Namecheap > Domain List > team4788.com > Advanced DNS, delete the existing
-A records for `@` and the CNAME for `www`, then add:
+| Path | What it is |
+|------|------------|
+| `docs/_config.yml` | Site title, URL, email address, plugins |
+| `docs/_data/nav.yml` | Header menu |
+| `docs/_data/sponsors.yml` | Sponsor logos (home page and `/sponsors/`) |
+| `docs/_data/socials.yml` | Social links (footer, home page, `/contact/`) |
+| `docs/_robots/` | One file per robot |
+| `docs/_posts/` | Blog posts |
+| `docs/_layouts/`, `docs/_includes/` | Templates: `default` (header and footer), `page`, `post`, `robot` |
+| `docs/assets/css/site.css` | The one stylesheet, colours and fonts are variables at the top |
+| `docs/assets/img/`, `docs/assets/fonts/` | Images and fonts |
+
+## Add a robot
+
+Copy `docs/_robots/2025frcrobot.md` to `docs/_robots/2027frcrobot.md` and edit the front matter. The file name is the URL (`/2027frcrobot/`). The robot shows up in the header menu, on `/robots/` and in the robot strip on the home page (the strip needs a `thumb`).
+
+Images go in `docs/assets/img/robots/`. Every field except `title`, `year` and `game` is optional, a page with nothing else filled in shows "Render coming soon". `2026frcrobot.md` is a stub like that at the moment.
+
+## Add a blog post
+
+Add `docs/_posts/YYYY-MM-DD-some-slug.md`:
+
+```markdown
+---
+title: "Post title"
+date: 2026-03-01
+image: /assets/img/blog/some-slug.jpg
+image_alt: "What the cover image shows"
+---
+
+Post text in Markdown.
+```
+
+It is published at `/blog/some-slug/` and listed on `/blog/`. Images for the post go in `docs/assets/img/blog/`.
+
+## Add or fill in a page
+
+Add `docs/name.md` with a `title` in the front matter and it is published at `/name/`. Add it to `docs/_data/nav.yml` to put it in the menu.
+
+A page with a title and no content shows the "under construction" message. Diversity, Downloads, Handbook, Media, Resources, Robot Demos and Support are like that now, writing content into the file replaces the message.
+
+To retire a URL, add `redirect_from: /old-url/` to the page that replaces it (see `contact.md`).
+
+## Preview locally
+
+Needs Ruby and Bundler (`sudo pacman -S ruby`).
+
+    cd docs
+    bundle install                 # first time only, installs into docs/vendor
+    bundle exec jekyll serve       # http://localhost:4000
+
+The `github-pages` gem pins the same Jekyll and plugins that GitHub Pages runs.
+
+After a build, `python3 check.py` from the repo root checks `docs/_site` for broken internal links, images without alt text, and that every URL from the old Framer site still exists or redirects.
+
+## DNS (Namecheap)
+
+In Namecheap > Domain List > team4788.com > Advanced DNS, the records are:
 
 | Type  | Host | Value                   |
 |-------|------|-------------------------|
@@ -23,27 +73,8 @@ A records for `@` and the CNAME for `www`, then add:
 | A     | @    | 185.199.111.153         |
 | CNAME | www  | hazzer890.github.io.    |
 
-Leave any MX/TXT records alone. Then in the repo: Settings > Pages > tick
-"Enforce HTTPS" once GitHub reports the certificate is issued (up to an hour
-after DNS propagates). Cancel Framer only after https://team4788.com loads.
+Leave any MX/TXT records alone. In the repo, Settings > Pages > "Enforce HTTPS" should be ticked once GitHub reports the certificate is issued (up to an hour after DNS propagates). Cancel Framer only after https://team4788.com loads from GitHub Pages.
 
-## Known gaps
+## History
 
-- The contact forms (home page and `/contact`) have no backend. Submitting opens
-  the visitor's email app with a prefilled message to FirstRoboticsTeam@curtin.edu.au
-  (patched in `mirror.py`). Swap in Formspree or similar if you want real submissions.
-- The site is a frozen snapshot: edits mean editing HTML by hand or rebuilding elsewhere.
-
-## patch.py
-
-Fixes that Framer can't make for us any more. It only reads `docs/`, so it keeps working after Framer is cancelled, and it is safe to run twice. Needs Pillow.
-
-- `<base>` tag on every page, because GitHub Pages serves `/about` as `/about/` and Framer's relative menu links 404 from there.
-- Per-page titles, absolute canonical/og URLs, `robots.txt`, `sitemap.xml`, `favicon.ico`.
-- Alt text for every image (the `ALTS` table), footer year (`YEAR`), AliExpress tracking junk trimmed.
-- Images wider than 2000 px are resized in place, Framer used to do this on the fly.
-
-## Regenerate
-
-    python3 mirror.py   # rm -rf docs first for a clean run (only while the Framer site is still up)
-    python3 patch.py
+Until November 2026 `docs/` was a static mirror of the old Framer site, kept working by `mirror.py` and `patch.py`. Those, the Framer export and the Team Structure page text are in the git history before the `rebuild` branch was merged.

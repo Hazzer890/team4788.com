@@ -1,0 +1,27 @@
+# Header menu. A group with "robots: true" lists every page in _robots/, newest first.
+- title: About
+  items:
+    - { title: About Us, url: /about/ }
+    - { title: Recruitment, url: /recruitment/ }
+    - { title: FIRST®, url: /first/ }
+    - { title: FAQ, url: /faq/ }
+    - { title: Sponsors, url: /sponsors/ }
+    - { title: Contact Us, url: /contact/ }
+- title: Robots
+  robots: true
+  items:
+    - { title: All robots, url: /robots/ }
+- title: Resources
+  items:
+    - { title: Training Course, url: "https://learn.team4788.com" }
+    - { title: Blogs, url: /blog/ }
+    - { title: Team Handbook, url: /handbook/ }
+    - { title: Downloads, url: /downloads/ }
+    - { title: Resources, url: /resources/ }
+- title: Community
+  items:
+    - { title: Diversity, url: /diversity/ }
+    - { title: Robot Demos, url: /robotdemos/ }
+    - { title: Media, url: /media/ }
+- title: Support Us
+  url: /support/

@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<article class="page">
+  <h1 class="title">{{ page.heading | default: page.title }}</h1>
+  {% assign body = content | strip %}
+  {% if body == "" %}
+  <p class="lead">Watch out! We are still under construction… 🚧</p>
+  <p class="buttons"><a class="button" href="/">Go back home</a></p>
+  {% else %}
+  {{ content }}
+  {% endif %}
+</article>

@@ -1,0 +1,26 @@
+<header class="site-header">
+  <a class="logo" href="/"><img src="/assets/img/logo.svg" alt="Team 4788 logo" width="39" height="34"></a>
+  <input type="checkbox" id="nav-toggle" aria-label="Menu">
+  <label for="nav-toggle" aria-hidden="true"><span></span></label>
+  <nav aria-label="Main">
+    <ul>
+      {% for group in site.data.nav %}
+      {% if group.url %}
+      <li><a href="{{ group.url }}">{{ group.title }}</a></li>
+      {% else %}
+      <li class="group">
+        <span tabindex="0">{{ group.title }}</span>
+        <ul>
+          {% for item in group.items %}
+          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+          {% endfor %}
+          {% if group.robots %}{% assign robots = site.robots | sort: "year" | reverse %}{% for robot in robots %}
+          <li><a href="{{ robot.url }}">{{ robot.year }}</a></li>
+          {% endfor %}{% endif %}
+        </ul>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+</header>
