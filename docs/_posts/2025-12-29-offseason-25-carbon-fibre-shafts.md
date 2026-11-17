@@ -7,7 +7,7 @@ image_alt: "Cross Section of Shaft Solution"
 
 In 2025 we utilised Carbon Fibre for the first time, both in static structure and as a replacement for hex shaft.  
 We found some great benefits of doing this, however being our first time we also ran into multiple issues. The purpose of this blog post is to detail our solution to the problem of robust bearing support.   
-This project was under taken by a collection of grade 9 students.
+This project was undertaken by a collection of grade 9 students.
 
 ## Reflection on 2025
 

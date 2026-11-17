@@ -1,9 +1,8 @@
 ---
 title: Join Us
 ---
-We are still open for enrollment for the 2026 Build Season. Occurring in January.  
-To sign up, or contact us, use the buttons below.
+Registrations are closed for now. If you would like to join the team or hear when they reopen, get in touch.
 {: .lead}
 
-[Register](https://payments.curtin.edu.au/CF2512080262){: .button} [Contact](/contact/){: .button}
+[Contact](/contact/){: .button}
 {: .buttons}

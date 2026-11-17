@@ -17,7 +17,7 @@ cards:
     image: /assets/img/robots/2024-cad.jpg
     alt: The 2024 robot in the workshop
   - title: Code
-    text: Access our public code. Published on Github.
+    text: Access our public code. Published on GitHub.
     url: https://github.com/CurtinFRC/2024-Crescendo
     image: /assets/img/robots/2024-code.jpg
     alt: Two team members working on the robot

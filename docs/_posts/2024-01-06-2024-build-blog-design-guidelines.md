@@ -31,7 +31,7 @@ Inspired by [Spectrum’s](https://www.chiefdelphi.com/t/spectrum-3847-build-blo
 - Shoot during pick and place games
 - Scissor lift
 - Pick up flat objects at a steep angle
-- Ramp bot (we expirenced this in 2018, in the end we removed our ramps and won the comp)
+- Ramp bot (we experienced this in 2018, in the end we removed our ramps and won the comp)
 
 ### Materials
 

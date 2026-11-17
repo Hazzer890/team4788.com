@@ -17,7 +17,7 @@ cards:
     image: /assets/img/robots/2022-cad.jpg
     alt: Close-up of the robot's shooter and green vision light ring
   - title: Code
-    text: Access our public code. Published on Github.
+    text: Access our public code. Published on GitHub.
     url: https://github.com/CurtinFRC/2022-RapidReact
     image: /assets/img/robots/2022-code.jpg
     alt: Two team members at a laptop giving a thumbs up

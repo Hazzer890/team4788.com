@@ -9,8 +9,8 @@ render_alt: CAD model of Gup X, the 2025 robot
 summary: Small, light and fast - our most successful robot yet.
 results:
   - 3rd Ranked Alliance - Southern Cross Regional
-  - Division Winner - Archimedies Division
-  - 7th ranked Alliance - Championship
+  - Division Winner - Archimedes Division
+  - 7th Ranked Alliance - Championship
 video: ZXojtVOLL8c
 video_text: Highlight reel of our robot, released prior to 2025 Championship to show off our creation.
 cards:
@@ -19,7 +19,7 @@ cards:
     image: /assets/img/robots/2025-cad.png
     alt: CAD model of Gup X, the 2025 robot
   - title: Code
-    text: Access our public code. Published on Github.
+    text: Access our public code. Published on GitHub.
     url: https://github.com/CurtinFRC/2025-Reefscape
     image: /assets/img/robots/2025-code.jpg
     alt: Two students programming the robot at a laptop

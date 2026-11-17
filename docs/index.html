@@ -8,7 +8,7 @@ redirect_from: [/roboacademy/, /workshops/]
     <h1>Ignite, Improve, Innovate</h1>
     <p>FRC Team 4788 - Can't Control</p>
     <p class="buttons">
-      <a class="button light" href="https://payments.curtin.edu.au/CF2512080262">Join our team</a>
+      <a class="button light" href="/recruitment/">Join our team</a>
       <a class="button ghost" href="/about/">About Us</a>
     </p>
   </div>
@@ -24,7 +24,7 @@ redirect_from: [/roboacademy/, /workshops/]
     <img src="/assets/img/home/match.jpg" alt="Team 4788's robot driving across the field during a match" loading="lazy">
     <div>
       <h2><em>FIRST™</em> Robotics Competition</h2>
-      <p>Competing in our fourth year as Team 4788 Can't Control, we take great pride in our robots, from their design to programming.</p>
+      <p>Competing as Team 4788 Can't Control, we take great pride in our robots, from their design to programming.</p>
       <p class="buttons"><a class="button" href="/robots/">See our Robots</a></p>
     </div>
   </div>
@@ -37,12 +37,12 @@ redirect_from: [/roboacademy/, /workshops/]
     </div>
   </div>
   <div class="feature">
-    <img src="/assets/img/home/reefscape.jpg" alt="Team 4788's robot beside the reef on a Reefscape field" loading="lazy">
+    <img src="/assets/img/home/reefscape.jpg" alt="Team 4788's robot beside the reef on the 2025 Reefscape field" loading="lazy">
     <div>
-      <h2>This season's challenge: <em>REEFSCAPE</em></h2>
-      <p>Causing a splash at the Houston Championships, we competed in two official events this season, and our very own offseason event.</p>
+      <h2>A new challenge every season</h2>
+      <p>Every January <em>FIRST</em> releases a new game, and we design, build and program a robot to play it at official events and at our very own offseason event.</p>
       <p class="buttons">
-        <a class="button" href="/2025frcrobot/">See the Season Reveal</a>
+        {% assign latest = site.robots | where_exp: "r", "r.video" | sort: "year" | last %}<a class="button" href="{{ latest.url }}">See the latest reveal</a>
         <a class="button" href="/blog/">Read our Build Blog</a>
       </p>
     </div>

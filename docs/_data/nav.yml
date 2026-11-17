@@ -15,9 +15,6 @@
   items:
     - { title: Training Course, url: "https://learn.team4788.com" }
     - { title: Blogs, url: /blog/ }
-    - { title: Team Handbook, url: /handbook/ }
-    - { title: Downloads, url: /downloads/ }
-    - { title: Resources, url: /resources/ }
 - title: Community
   items:
     - { title: Diversity, url: /diversity/ }
